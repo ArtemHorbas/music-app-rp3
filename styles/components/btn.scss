@@ -1,0 +1,16 @@
+.btn{
+	padding: 5px 47px;
+	background-color: $secondary-light;
+
+	font-size: 28px;
+	line-height: 33px;
+	color: #000000;
+
+	transition: color 0.2s ease-in, background-color 0.2s ease-in;
+
+	&:hover{
+		color: #fff;
+		background-color: $primary-dark;
+	}
+
+}

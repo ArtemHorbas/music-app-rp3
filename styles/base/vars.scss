@@ -1,0 +1,25 @@
+$primary-color: #fff;
+$primary-dark: #1F1F1F;
+$secondary-light: #C4C4C4;
+$secondary-color: #767070;
+$red: #FF0000;
+
+
+//MIXINS
+@mixin params($fs, $lh){
+  font-size: $fs;
+  line-height: $lh;
+}
+
+
+//
+$container-width: 1536px;
+$second-container-width: 1240px;
+$third-container-width: 1024px;
+$fourth-container-width: 768px;
+$padding: 60px;
+$md1: $container-width + $padding;
+$md2: $second-container-width + $padding;
+$md3: $third-container-width + $padding;
+$md4: $fourth-container-width + $padding;
+$min-width: 320px;

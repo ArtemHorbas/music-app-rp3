@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+@import './vars.scss';
+
+html, body{
+	@include params(16px, 120%);
+	font-family: 'Fira Sans', sans-serif;
+	font-style: normal;
+	font-weight: 400;
+}
+
+
+.my__container {
+	max-width: $container-width;
+	margin: 0 auto;
+
+	margin-top: 150px;
+
+
+	@media (max-width: $md1){
+		max-width: $second-container-width;
+	}
+
+	@media (max-width: $md2){
+		max-width: $third-container-width;
+	}
+
+	@media (max-width: $md3){
+		max-width: $fourth-container-width;
+	}
+}
