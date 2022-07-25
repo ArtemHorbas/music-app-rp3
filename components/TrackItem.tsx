@@ -28,8 +28,8 @@ export const TrackItem: FC<TrackItemProps> = ({track}) => {
 
 	const remove = async (e: any) => {
 		e.stopPropagation()
-		axios.delete(`https://nest-back-music.herokuapp.com/tracks/${track._id}`)
-		removeTrack(track._id)
+		await axios.delete(`https://nest-back-music.herokuapp.com/tracks/${track._id}`)
+		dispatch(removeTrack(track._id))
 	}
 
 	
