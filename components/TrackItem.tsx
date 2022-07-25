@@ -6,6 +6,8 @@ import React, { FC } from 'react'
 import { ITrack } from '../types/tracks'
 import { useAppDispatch, useAppSelector } from '../redux/store'
 import { playTrack, setActiveTrack } from '../redux/player/slice'
+import axios from 'axios'
+import { removeTrack } from '../redux/track/slice'
 
 interface TrackItemProps {
 	track: ITrack
@@ -24,6 +26,12 @@ export const TrackItem: FC<TrackItemProps> = ({track}) => {
 		dispatch(playTrack())
 	}
 
+	const remove = async (e: any) => {
+		e.stopPropagation()
+		axios.delete(`https://nest-back-music.herokuapp.com/tracks/${track._id}`)
+		removeTrack(track._id)
+	}
+
 	
 	return (
 		<div className="track-item px-9 py-5 flex justify-between items-center" onClick={() => router.push(`/tracks/${track._id}`)} >
@@ -39,7 +47,7 @@ export const TrackItem: FC<TrackItemProps> = ({track}) => {
 			</div>
 			<div className='flex items-center space-x-5'>
 				{!pause && <p>{currentTime} / {duration}</p>}
-				<IconButton onClick={e => e.stopPropagation()}>
+				<IconButton onClick={remove}>
 					<Delete />
 				</IconButton>
 			</div> 

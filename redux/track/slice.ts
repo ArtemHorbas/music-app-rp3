@@ -14,7 +14,10 @@ export const trackSlice = createSlice({
 	reducers: {
 		setTracks(state, action){
 			state.tracks = action.payload
-		}
+		},
+		removeTrack(state, action: PayloadAction<string>){
+			state.tracks = state.tracks.filter((item: any) => item.id !== action.payload)
+		},	
 	},
 	extraReducers: {
 		[fetchTracks.pending as any]: (state) => {
@@ -32,6 +35,6 @@ export const trackSlice = createSlice({
 	}	
 })
 
-export const { setTracks } = trackSlice.actions
+export const { setTracks, removeTrack } = trackSlice.actions
 
 export default trackSlice.reducer
