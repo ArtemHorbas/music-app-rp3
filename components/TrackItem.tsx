@@ -46,7 +46,7 @@ export const TrackItem: FC<TrackItemProps> = ({track}) => {
 				</div>
 			</div>
 			<div className='flex items-center space-x-5'>
-				{!pause && <p>{currentTime} / {duration}</p>}
+				{!pause && <p>0 / 0</p>}
 				<IconButton onClick={remove}>
 					<Delete />
 				</IconButton>
