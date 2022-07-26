@@ -6,7 +6,7 @@ import { fetchTracks } from './asyncThunk'
 import { ITrackSlice } from './type'
 
 
-const initialState: any = {tracks: []}
+const initialState: ITrackSlice = {tracks: []}
 
 export const trackSlice = createSlice({
 	name: 'track',
@@ -16,7 +16,7 @@ export const trackSlice = createSlice({
 			state.tracks = action.payload
 		},
 		removeTrack(state, action: PayloadAction<string>){
-			state.tracks = state.tracks.filter((item: any) => item.id !== action.payload)
+			state.tracks = state.tracks.filter(item => item._id !== action.payload)
 		},	
 	},
 	extraReducers: {
