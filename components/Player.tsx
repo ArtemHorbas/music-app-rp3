@@ -1,7 +1,7 @@
-import { Pause, PlayArrow, VolumeUp } from '@mui/icons-material'
-import { IconButton } from '@mui/material'
-import React from 'react'
-import { pauseTrack, playTrack, setCurrentTime, setDuration, setVolume } from '../redux/player/slice'
+import { Pause, PlayArrow, VolumeUp } from '@mui/icons-material';
+import { IconButton } from '@mui/material';
+import React from 'react';
+import { pauseTrack, playTrack, setCurrentTime, setDuration, setVolume } from '../redux/player/slice';
 import { useAppDispatch, useAppSelector } from '../redux/store';
 import { ITrack } from '../types/tracks';
 import { TrackProgress } from './TrackProgress';
@@ -62,19 +62,19 @@ export const Player: React.FC = () => {
 	}
 
 	return (
-		<div className=' w-full h-16 fixed bottom-0 flex items-center justify-between px-4 py-2 bg-gray-500'>
+		<div className=' w-full h-16 fixed bottom-0 flex items-center justify-between px-4 py-4 bg-gray-500'>
 			<div className='flex items-center space-x-20'>
 				<IconButton onClick={play}>
 					{!pause ? <Pause /> : <PlayArrow />}
 				</IconButton>
-				<img src={`https://nest-back-music.herokuapp.com/` + active.picture} width={50} height={50}  alt="" />
-				<div className="flex flex-col space-y-6">
+				<img src={`https://nest-back-music.herokuapp.com/` + active.picture} width={70} height={70}  alt="" />
+				<div className="flex flex-col space-y-3">
 						<h3>{active.name}</h3>
 						<h4>{active.artist}</h4>
 				</div>
 			</div>
 			<TrackProgress left={currentTime} right={duration} onChange={changeCurrentTime}/>
-			<div className='flex items-center space-x-2'>
+			<div className='flex items-center space-x-3'>
 				<VolumeUp />
 				<TrackProgress left={volume} right={100} onChange={changeVolume}/>
 			</div>
